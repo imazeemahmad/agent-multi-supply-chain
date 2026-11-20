@@ -1,0 +1,59 @@
+{
+  "inventory": [
+    {
+      "sku": "SKU-001",
+      "product_name": "Widget A",
+      "quantity": 45,
+      "reorder_point": 50,
+      "max_stock": 200,
+      "warehouse": "WH-01",
+      "location": "Seattle, WA",
+      "unit_cost": 12.50,
+      "supplier": "SUPP-001"
+    },
+    {
+      "sku": "SKU-002",
+      "product_name": "Widget B",
+      "quantity": 120,
+      "reorder_point": 100,
+      "max_stock": 300,
+      "warehouse": "WH-01",
+      "location": "Seattle, WA",
+      "unit_cost": 8.75,
+      "supplier": "SUPP-002"
+    },
+    {
+      "sku": "SKU-003",
+      "product_name": "Gadget X",
+      "quantity": 15,
+      "reorder_point": 30,
+      "max_stock": 150,
+      "warehouse": "WH-02",
+      "location": "Chicago, IL",
+      "unit_cost": 25.00,
+      "supplier": "SUPP-001"
+    },
+    {
+      "sku": "SKU-004",
+      "product_name": "Gadget Y",
+      "quantity": 200,
+      "reorder_point": 75,
+      "max_stock": 400,
+      "warehouse": "WH-03",
+      "location": "Dallas, TX",
+      "unit_cost": 15.25,
+      "supplier": "SUPP-003"
+    },
+    {
+      "sku": "SKU-005",
+      "product_name": "Component Z",
+      "quantity": 5,
+      "reorder_point": 20,
+      "max_stock": 100,
+      "warehouse": "WH-02",
+      "location": "Chicago, IL",
+      "unit_cost": 45.00,
+      "supplier": "SUPP-002"
+    }
+  ]
+}

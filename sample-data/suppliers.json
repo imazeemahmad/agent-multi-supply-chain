@@ -1,0 +1,43 @@
+{
+  "suppliers": [
+    {
+      "supplier_id": "SUPP-001",
+      "name": "TechParts Inc",
+      "contact_email": "orders@techparts.example.com",
+      "contact_phone": "+1-555-0101",
+      "location": "San Francisco, CA",
+      "lead_time_days": 7,
+      "minimum_order_quantity": 50,
+      "payment_terms": "Net 30",
+      "products": ["SKU-001", "SKU-003"],
+      "rating": 4.5,
+      "on_time_delivery_rate": 0.95
+    },
+    {
+      "supplier_id": "SUPP-002",
+      "name": "Global Components Ltd",
+      "contact_email": "sales@globalcomp.example.com",
+      "contact_phone": "+1-555-0202",
+      "location": "Austin, TX",
+      "lead_time_days": 10,
+      "minimum_order_quantity": 100,
+      "payment_terms": "Net 45",
+      "products": ["SKU-002", "SKU-005"],
+      "rating": 4.2,
+      "on_time_delivery_rate": 0.88
+    },
+    {
+      "supplier_id": "SUPP-003",
+      "name": "Reliable Supplies Co",
+      "contact_email": "info@reliablesupplies.example.com",
+      "contact_phone": "+1-555-0303",
+      "location": "Chicago, IL",
+      "lead_time_days": 5,
+      "minimum_order_quantity": 25,
+      "payment_terms": "Net 30",
+      "products": ["SKU-004"],
+      "rating": 4.8,
+      "on_time_delivery_rate": 0.98
+    }
+  ]
+}

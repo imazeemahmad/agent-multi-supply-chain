@@ -1,0 +1,75 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "=========================================="
+      - echo "Pre-build phase"
+      - echo "=========================================="
+      - echo "Working directory:" $(pwd)
+      - ls -la
+
+      - echo "Logging in to Amazon ECR..."
+      - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      - AWS_REGION=us-east-1
+      - ECR_REGISTRY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
+      - echo "✓ Logged in to ECR"
+
+  build:
+    commands:
+      - echo "=========================================="
+      - echo "Build phase"
+      - echo "=========================================="
+      - echo "Files in containers/:"
+      - ls -la containers/
+
+      - echo "Building inventory agent..."
+      - docker build -t supply-chain-inventory-agent:latest -f containers/Dockerfile.inventory .
+      - docker tag supply-chain-inventory-agent:latest $ECR_REGISTRY/supply-chain-inventory-agent:latest
+      - echo "✓ Built inventory agent"
+
+      - echo "Building forecasting agent..."
+      - docker build -t supply-chain-forecasting-agent:latest -f containers/Dockerfile.forecasting .
+      - docker tag supply-chain-forecasting-agent:latest $ECR_REGISTRY/supply-chain-forecasting-agent:latest
+      - echo "✓ Built forecasting agent"
+
+      - echo "Building tracking agent..."
+      - docker build -t supply-chain-tracking-agent:latest -f containers/Dockerfile.tracking .
+      - docker tag supply-chain-tracking-agent:latest $ECR_REGISTRY/supply-chain-tracking-agent:latest
+      - echo "✓ Built tracking agent"
+
+      - echo "Building orchestrator agent..."
+      - docker build -t supply-chain-orchestrator-agent:latest -f containers/Dockerfile.orchestrator .
+      - docker tag supply-chain-orchestrator-agent:latest $ECR_REGISTRY/supply-chain-orchestrator-agent:latest
+      - echo "✓ Built orchestrator agent"
+
+      - echo "Building supplier agent..."
+      - docker build -t supply-chain-supplier-agent:latest -f containers/Dockerfile.supplier .
+      - docker tag supply-chain-supplier-agent:latest $ECR_REGISTRY/supply-chain-supplier-agent:latest
+      - echo "✓ Built supplier agent"
+
+  post_build:
+    commands:
+      - echo "=========================================="
+      - echo "Pushing images to ECR"
+      - echo "=========================================="
+
+      - docker push $ECR_REGISTRY/supply-chain-inventory-agent:latest
+      - echo "✓ Pushed inventory agent"
+
+      - docker push $ECR_REGISTRY/supply-chain-forecasting-agent:latest
+      - echo "✓ Pushed forecasting agent"
+
+      - docker push $ECR_REGISTRY/supply-chain-tracking-agent:latest
+      - echo "✓ Pushed tracking agent"
+
+      - docker push $ECR_REGISTRY/supply-chain-orchestrator-agent:latest
+      - echo "✓ Pushed orchestrator agent"
+
+      - docker push $ECR_REGISTRY/supply-chain-supplier-agent:latest
+      - echo "✓ Pushed supplier agent"
+
+      - echo "=========================================="
+      - echo "BUILD & PUSH COMPLETE"
+      - echo "=========================================="

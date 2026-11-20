@@ -1,0 +1,62 @@
+{
+  "orders": [
+    {
+      "order_id": "ORD-001",
+      "customer_id": "CUST-1001",
+      "order_date": "2024-01-10",
+      "status": "in_transit",
+      "items": [
+        {"sku": "SKU-001", "quantity": 50, "unit_price": 12.50},
+        {"sku": "SKU-002", "quantity": 30, "unit_price": 8.75}
+      ],
+      "total_amount": 887.50,
+      "shipping": {
+        "carrier": "FedEx",
+        "tracking_number": "TRK123456",
+        "origin": "Seattle, WA",
+        "destination": "New York, NY",
+        "estimated_delivery": "2024-01-15",
+        "current_location": "Chicago, IL"
+      }
+    },
+    {
+      "order_id": "ORD-002",
+      "customer_id": "CUST-1002",
+      "order_date": "2024-01-08",
+      "status": "delayed",
+      "items": [
+        {"sku": "SKU-003", "quantity": 25, "unit_price": 25.00}
+      ],
+      "total_amount": 625.00,
+      "shipping": {
+        "carrier": "UPS",
+        "tracking_number": "TRK789012",
+        "origin": "Los Angeles, CA",
+        "destination": "Miami, FL",
+        "estimated_delivery": "2024-01-18",
+        "current_location": "Phoenix, AZ",
+        "delay_reason": "Weather conditions"
+      }
+    },
+    {
+      "order_id": "ORD-003",
+      "customer_id": "CUST-1003",
+      "order_date": "2024-01-12",
+      "status": "delivered",
+      "items": [
+        {"sku": "SKU-001", "quantity": 100, "unit_price": 12.50},
+        {"sku": "SKU-004", "quantity": 50, "unit_price": 15.25}
+      ],
+      "total_amount": 2012.50,
+      "shipping": {
+        "carrier": "FedEx",
+        "tracking_number": "TRK345678",
+        "origin": "Dallas, TX",
+        "destination": "Boston, MA",
+        "estimated_delivery": "2024-01-14",
+        "actual_delivery": "2024-01-14",
+        "current_location": "Boston, MA"
+      }
+    }
+  ]
+}
